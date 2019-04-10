@@ -14,7 +14,7 @@ class OrientationPlugin {
   static Future<void> setEnabledSystemUIOverlays(
       List<SystemUiOverlay> overlays) async {
     if (Platform.isAndroid) {
-      await _methodChannel.invokeMethod<void>(
+      await _methodChannel.invokeMethod(
         'SystemChrome.setEnabledSystemUIOverlays',
         _stringify(overlays),
       );
@@ -25,14 +25,14 @@ class OrientationPlugin {
 
   static Future<void> setPreferredOrientations(
       List<DeviceOrientation> orientations) async {
-    await _methodChannel.invokeMethod<void>(
+    await _methodChannel.invokeMethod(
       'SystemChrome.setPreferredOrientations',
       _stringify(orientations),
     );
   }
 
   static Future<void> forceOrientation(DeviceOrientation orientation) async {
-    await _methodChannel.invokeMethod<void>(
+    await _methodChannel.invokeMethod(
       'SystemChrome.forceOrientation',
       orientation.toString(),
     );
